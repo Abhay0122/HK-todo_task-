@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+ul{
+  list-style: none;
+}
+
+.card_wrapper{
+  width: 100%;
+  display: flex !important;
+  padding: 2vw;
+  flex-wrap: wrap;
+  color: white;
+}
+
+.Taskcard{
+  height: fit-content;
+  width: 20vmax;
+  padding: 1vw;
+  background-color: #1e1f1f97;
+  margin: 0 2vmax 2vmax 0;
+  border-radius: 5px;
+}
+
+.userName{
+  font-size: 1.6vmax;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 1vmax;
+  text-decoration: underline;
+}
+
+.status{
+  font-size: 1.1vmax;
+  font-weight: bold;
+  color: rgba(255, 0, 0, 0.429);
+}

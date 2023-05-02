@@ -1,0 +1,79 @@
+<%- include('../includes/head.ejs') %>
+  <div class="p-2" style="min-height: 100vh;">
+    <div
+      class="container shadow-lg p-4 d-flex justify-content-center align-items-center flex-column border-none rounded"
+      style="margin-top: 6vmax;">
+      <h2 class="fs-1 mb-5">Add Task</h2>
+      <form class="w-50" action="/task" method="post">
+        <% if(users.length>=1){ %>
+          <div class="mb-3">
+            <label for="exampleInputOPTION1" class="form-label">Select user</label>
+            <select class="form-control" name="userId" id="exampleInputOPTION1">
+              <% users.forEach(function(user) { %>
+                <option value="<%= user.id %>">
+                  <%= user.name %>
+                </option>
+                <% }); %>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputbox" class="form-label">Add Task</label>
+            <textarea class="form-control" name="desc" id="exampleInputbox"> </textarea>
+          </div>
+          <h5 class="fw-normal">Please select task status:</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="flexRadioDefault1" name="task_status" value="done" />
+            <label class="form-check-label" for="flexRadioDefault1">done</label><br />
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" id="flexRadioDefault2" name="task_status" value="pending" />
+            <label class="form-check-label" for="flexRadioDefault2">pending</label><br />
+          </div>
+
+          <button class="btn btn-dark mt-2">submit</button>
+      </form>
+
+      <% } else{ %>
+        <div class="container">
+          <h1 class="text-center fs-2 text-danger">No User Found!</h1>
+        </div>
+        <% } %>
+    </div>
+    <div
+      class="container shadow-lg mt-5 p-4 d-flex justify-content-center align-items-center flex-column border-none rounded">
+      <div>
+        <h3 class="fs-1 mb-5 text-center">All Task</h3>
+      </div>
+      <div class="card_wrapper">
+        <% if(AllUserTask.length>=1){ %> <% AllUserTask.forEach(function(user) { %>
+            <div class="Taskcard">
+              <h5 class="userName">
+                <%=user.name%>
+              </h5>
+              <% user.task.forEach(function(task, index) { %>
+                <h5>Task-<%= index+1%> :<p>
+                      <%=task.desc%>
+                    </p>
+                </h5>
+                <p><span class="status">Status : </span>
+                  <%=task.status%>
+                </p>
+                <div class="line-2"></div>
+                <% }); %>
+            </div>
+            <% }); %>
+              <% } else{ %>
+                <h1>sorry no task</h1>
+                <% } %>
+      </div>
+      <div class="">
+        <% if(AllUserTask.length>=1){ %>
+            <a class="btn btn-danger me-3" href="/excel-user"> print user</a>
+            <a class="btn btn-success" href="/excel-task"> print task</a>
+          <% } else{ %>
+            <% } %>
+      </div>
+    </div>
+  </div>
+
+  <%- include('../includes/footer.ejs') %>

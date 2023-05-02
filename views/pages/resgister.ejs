@@ -1,0 +1,31 @@
+<%- include('../includes/head.ejs') %>
+  <div class="p-1"
+    style="min-height: 100vh; background-image: url('/images/kiwihug-5bzMOpMTDRM-unsplash.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+    <div class="container p-4 d-flex align-items-center justify-content-center flex-column border-none rounded"
+      style="background-color: rgba(0, 0, 0, 0.389); margin-top: 10vmax;">
+      <h4 class="text-light mb-4 fs-2">Create User</h4>
+      <form class="w-50 " action="/register" method="post">
+        <div class="mb-3">
+          <label for="exampleInputName1" class="form-label text-light">name</label>
+          <input class="form-control" type="text" name="name" id="exampleInputName1" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label text-light">email</label>
+          <input class="form-control" type="text" name="email" id="exampleInputEmail1" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPhone" class="form-label text-light">
+            phone number
+          </label>
+          <input class="form-control" type="number" name="phone" id="exampleInputPhone" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label text-light">password</label>
+          <input class="form-control" type="password" name="password" id="exampleInputPassword1" />
+        </div>
+        <button class="btn px-4 text-light shadow-lg" style="background-color: #569DAA;" type="submit">submit</button>
+      </form>
+    </div>
+  </div>
+
+  <%- include('../includes/footer.ejs') %>
